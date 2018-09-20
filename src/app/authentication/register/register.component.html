@@ -1,0 +1,55 @@
+
+<span class="size"> Register </span>
+<br>
+<div class="container">
+
+  <div *ngIf="hasErrors">
+    <p class="alert alert-danger" role="alert">
+      <b>E-mail already registered!</b>
+    </p>
+  </div>
+
+  <form [formGroup]="myform">
+
+    <div class="form-group row">
+      <label for="firstName" class="col-sm-2 col-form-label" required>First Name:</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control"
+               id="firstName" name="firstName" formControlName="firstName" required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="lastName" class="col-sm-2 col-form-label" required>Last Name:</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control"
+               id="lastName" name="lastName" formControlName="lastName" required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label" required>Email:</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control"
+               id="email" name="email" formControlName="email" required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="password" class="col-sm-2 col-form-label" required>Password:</label>
+      <div class="col-sm-6">
+        <input type="password" class="form-control"
+               id="password" name="password" formControlName="password" required>
+      </div>
+    </div>
+    <br>
+    <div>
+      <div>
+        <button type="button" class="btn btn-lg btn-warning" [disabled]="!myform.valid" (click)="sendForm()">Register
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>
+

@@ -1,0 +1,9 @@
+.center-table {
+  display: table;
+  height: 30%;
+  width: 100%;
+  margin: 10%;
+}
+.size {
+  font-size: 60px;
+}
