@@ -7,10 +7,11 @@ import {RegisterComponent} from './authentication/register/register.component';
 import {ActivateComponent} from './authentication/activate/activate.component';
 import {LoginComponent} from './authentication/login/login.component';
 import {HomeListComponent} from './home/home-list/home-list.component';
+import {AuthGuard} from './authentication/auth.guard';
 
 export const appRoutes: Routes = [
   {path: '', component: IndexComponent},
-  {path: 'homes', component: HomeListComponent},
+  {path: 'homes', component: HomeListComponent, canActivate: [AuthGuard]},
   {path: 'contact', component: ContactComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'activate/:token', component: ActivateComponent},
