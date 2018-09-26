@@ -11,6 +11,7 @@ export class HomeListComponent implements OnInit {
 
   homes: Home[];
   selectedHome: Home;
+  selectedHomeId: number;
 
   constructor(private homeService: HomeService) {
   }

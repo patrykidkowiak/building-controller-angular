@@ -3,7 +3,9 @@
   <li *ngFor="let home of homes"
       [class.selected]="home === selectedHome"
       (click)="onSelect(home)">
-    <span class="badge"><i class="fas fa-home fa-4x"></i></span> {{home.houseName}}
+    <span class="badge"><i class="fas fa-home fa-4x"></i></span> {{home.homeName}}
   </li>
 </ul>
-<app-room-list [home]="selectedHome"></app-room-list>
+<div *ngIf="selectedHome">
+  <app-room-list [homeId]="selectedHome.id" [homeName]="selectedHome.homeName"></app-room-list>
+</div>

@@ -1,12 +1,9 @@
-
-<div *ngIf="home">
-  <h2>My Rooms</h2>
-  <ul class="rooms">
-    <div><span>id: </span>{{home.id}}</div>
-    <li *ngFor="let room of rooms"
-        [class.selected]="room === selectedRoom"
-        (click)="onSelect(room)">
-      <span class="badge"><i class="fas fa-home fa-4x"></i></span> {{room.name}}
-    </li>
+<h2>{{homeName | uppercase}} Rooms</h2>
+<ul class="rooms">
+  <div><span>id: </span>{{homeId}}</div>
+  <ul *ngFor="let room of rooms"
+      [class.selected]="room === selectedRoom"
+      (click)="onSelect(room)">
+    <span class="badge"><i class="fas fa-home fa-4x"></i></span> {{room.name}}
   </ul>
-</div>
+</ul>

@@ -1,4 +1,4 @@
 export class Home {
   id: number;
-  houseName: string;
+  homeName: string;
 }

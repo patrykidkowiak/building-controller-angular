@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Home} from '../../home';
 import {Room} from '../room';
 import {RoomService} from '../room.service';
@@ -8,9 +8,10 @@ import {RoomService} from '../room.service';
   templateUrl: './room-list.component.html',
   styleUrls: ['./room-list.component.css']
 })
-export class RoomListComponent implements OnInit {
+export class RoomListComponent implements OnChanges {
 
-  @Input() home: Home;
+  @Input() homeId: number;
+  @Input() homeName: string;
 
   rooms: Room[];
   selectedRoom: Room;
@@ -21,9 +22,8 @@ export class RoomListComponent implements OnInit {
   onSelect(room: Room): void {
     this.selectedRoom = room;
   }
-
-  ngOnInit() {
-    this.roomService.getRooms(this.home.id).subscribe(
+  ngOnChanges(changes: SimpleChanges): void {
+    this.roomService.getRooms(this.homeId).subscribe(
       rooms => {
         this.rooms = rooms;
       },
