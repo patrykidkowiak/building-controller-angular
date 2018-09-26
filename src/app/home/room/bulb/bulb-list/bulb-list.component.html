@@ -1,0 +1,9 @@
+<h2>{{roomName | uppercase}} bulbs</h2>
+<ul class="bulbs">
+  <div><span>id: </span>{{roomId}}</div>
+  <ul *ngFor="let bulb of bulbs"
+      [class.selected]="bulb === selectedBulb"
+      (click)="onSelect(bulb)">
+    <span class="badge"><i class="fas fa-lightbulb fa-4x"></i></span> {{bulb.bulbName}}
+  </ul>
+</ul>
