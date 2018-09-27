@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Home} from '../home';
 import {HomeService} from '../home.service';
 
@@ -11,17 +11,12 @@ export class HomeListComponent implements OnInit {
 
   homes: Home[];
   selectedHome: Home;
-  selectedHomeId: number;
 
   constructor(private homeService: HomeService) {
   }
 
   onSelect(home: Home): void {
     this.selectedHome = home;
-  }
-
-  onHideClick() {
-    this.selectedHome = null;
   }
 
   ngOnInit() {

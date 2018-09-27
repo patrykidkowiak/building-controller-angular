@@ -1,9 +1,18 @@
-<h2>{{homeName | uppercase}} Rooms</h2>
-<ul class="rooms">
-  <div><span>id: </span>{{homeId}}</div>
-  <ul *ngFor="let room of rooms"
-      [class.selected]="room === selectedRoom"
-      (click)="onSelect(room)">
-    <span class="badge"><i class="fas fa-home fa-4x"></i></span> {{room.name}}
-  </ul>
-</ul>
+<h3>{{homeName | uppercase}} Rooms</h3>
+<div class="row">
+  <div class="col-3" *ngFor="let room of rooms"
+       [class.selected]="room === selectedRoom"
+       (click)="onSelect(room)">
+
+    <button type="button" class="btn btn-info btn-xs btn-block"
+            style="white-space: normal; vertical-align: middle;">
+      <i class="fas fa-home fa-3x"></i><br>
+      {{room.name}}
+    </button>
+    <br>
+  </div>
+</div>
+<div *ngIf="selectedRoom">
+  <app-bulb-list [roomId]="selectedRoom.id" [roomName]="selectedRoom.name"></app-bulb-list>
+</div>
+
