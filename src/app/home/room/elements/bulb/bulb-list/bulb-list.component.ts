@@ -1,7 +1,7 @@
-///<reference path="../../../../../../node_modules/@angular/core/src/metadata/directives.d.ts"/>
+///<reference path="../../../../../../../node_modules/@angular/core/src/metadata/directives.d.ts"/>
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {BulbService} from '../bulb.service';
-import {Room} from '../../room';
+import {Room} from '../../../room';
 import {Bulb} from '../bulb';
 
 @Component({
@@ -11,8 +11,7 @@ import {Bulb} from '../bulb';
 })
 export class BulbListComponent implements OnChanges {
 
-  @Input() roomId: number;
-  @Input() roomName: string;
+  @Input() selectedRoom: Room;
 
   bulbs: Bulb[];
   selectedBulb: Bulb;
@@ -21,11 +20,19 @@ export class BulbListComponent implements OnChanges {
   }
 
   onSelect(bulb: Bulb): void {
+    this.selectedBulb = null;
+    this.bulbservice.getBulbs(this.selectedRoom.id).subscribe(
+      bulbs => {
+        this.bulbs = bulbs;
+      },
+      error => console.log(JSON.stringify(error))
+    );
     this.selectedBulb = bulb;
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.bulbservice.getBulbs(this.roomId).subscribe(
+    this.selectedBulb = null;
+    this.bulbservice.getBulbs(this.selectedRoom.id).subscribe(
       bulbs => {
         this.bulbs = bulbs;
       },

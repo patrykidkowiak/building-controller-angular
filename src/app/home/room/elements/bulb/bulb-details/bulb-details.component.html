@@ -1,0 +1,95 @@
+<form class="form" [formGroup]="myform">
+  <div class="row mb-2 border-bottom">
+    <div class="col-8">
+      <h4>{{bulb.id}} {{bulb.bulbName}}</h4>
+    </div>
+
+  </div>
+
+  <div class="row mb-2">
+
+    <div class="col-lg-4  col-sm-4 mb-2 border-bottom border-right">
+
+      <label class="switch">
+        <input type="checkbox" [checked]="bulb.onOff" [value]="bulb.onOff"
+               class="custom-control-input" id="onOff" formControlName="onOff">
+        <span class="slider round"></span>
+      </label>
+
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" [checked]="bulb.offAtDay" [value]="bulb.offAtDay"
+               class="custom-control-input" id="offAtDay" formControlName="offAtDay">
+        <label class="custom-control-label" for="offAtDay">OFF at day</label>
+      </div>
+
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" [checked]="bulb.onAtNight" [value]="bulb.onAtNight"
+               class="custom-control-input" id="onAtNight" formControlName="onAtNight">
+        <label class="custom-control-label" for="onAtNight">ON at night</label>
+      </div>
+
+    </div>
+
+
+    <div class="col-lg-4  col-sm-4 mb-2 border-bottom border-right">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" [checked]="bulb.autoMode.autoModeActive" [value]="bulb.autoMode.autoModeActive"
+               class="custom-control-input" id="autoModeCheckbox" formControlName="autoModeCheckbox">
+        <label class="custom-control-label" for="autoModeCheckbox">Auto Mode Active</label>
+      </div>
+
+      <div class="form-group row">
+        <label for="timeOn" class="col-10 col-form-label">auto ON time</label>
+        <div class="col-10">
+          <input class="form-control" type="time"
+                 value="{{bulb.autoMode.autoTimeOnH}}:{{bulb.autoMode.autoTimeOnM}}:00"
+                 id="timeOn"
+                 formControlName="timeOn">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="timeOff" class="col-10 col-form-label">auto OFF time</label>
+        <div class="col-10">
+          <input class="form-control" type="time"
+                 value="{{bulb.autoMode.autoTimeOffH}}:{{bulb.autoMode.autoTimeOffM}}:00" id="timeOff"
+                 formControlName="timeOff">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4  col-sm-4 mb-2 border-bottom">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" [checked]="bulb.silentMode.silentModeActive" [value]="bulb.silentMode.silentModeActive"
+               class="custom-control-input" id="silentModeCheckbox" formControlName="silentModeCheckbox">
+        <label class="custom-control-label" for="silentModeCheckbox">Silent Mode Active</label>
+      </div>
+
+      <div class="form-group row">
+        <label for="timeSilentOn" class="col-10 col-form-label">silent ON time</label>
+        <div class="col-10">
+          <input class="form-control" type="time"
+                 value="{{bulb.silentMode.silentTimeOnH}}:{{bulb.silentMode.silentTimeOnM}}:00"
+                 id="timeSilentOn"
+                 formControlName="timeSilentOn">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="timeSilentOff" class="col-10 col-form-label">OFF time</label>
+        <div class="col-10">
+          <input class="form-control" type="time"
+                 value="{{bulb.silentMode.silentTimeOffH}}:{{bulb.silentMode.silentTimeOffM}}:00" id="timeSilentOff"
+                 formControlName="timeSilentOff">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div>
+    <button type="submit" class="btn btn-primary" (click)="updateBulb()">Update</button>
+
+  </div>
+</form>

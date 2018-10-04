@@ -19,8 +19,9 @@ import {HomeListComponent} from './home/home-list/home-list.component';
 import {HomeCreateComponent} from './home/home-create/home-create.component';
 import {RoomListComponent} from './home/room/room-list/room-list.component';
 import {RoomCreateComponent} from './home/room/room-create/room-create.component';
-import {BulbListComponent} from './home/room/bulb/bulb-list/bulb-list.component';
-import {BulbCreateComponent} from './home/room/bulb/bulb-create/bulb-create.component';
+import {BulbListComponent} from './home/room/elements/bulb/bulb-list/bulb-list.component';
+import {BulbCreateComponent} from './home/room/elements/bulb/bulb-create/bulb-create.component';
+import { BulbDetailsComponent } from './home/room/elements/bulb/bulb-details/bulb-details.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {BulbCreateComponent} from './home/room/bulb/bulb-create/bulb-create.comp
     RoomListComponent,
     RoomCreateComponent,
     BulbListComponent,
-    BulbCreateComponent
+    BulbCreateComponent,
+    BulbDetailsComponent
   ],
   imports: [
     BrowserModule,

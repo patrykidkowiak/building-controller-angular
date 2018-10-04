@@ -1,0 +1,24 @@
+<script src="../bulb-details/bulb.component.js" xmlns=""></script><h3>{{selectedRoom.name | uppercase}} bulbss</h3>
+<div class="row">
+  <div class="col-lg-2  col-sm-2" *ngFor="let bulb of bulbs"
+       [class.selected]="bulb === selectedBulb"
+       (click)="onSelect(bulb)">
+    <button type="button" class="btn btn-success btn-xs btn-block"
+            style="white-space: normal; vertical-align: middle;">
+      <div *ngIf="bulb.onOff">
+        <i class="fas fa-lightbulb fa-2x"></i><br>
+      </div>
+      <div *ngIf="!bulb.onOff">
+        <i class="far fa-lightbulb fa-2x"></i><br>
+      </div>
+      {{bulb.bulbName}}
+    </button>
+    <br>
+  </div>
+</div>
+
+<div *ngIf="selectedBulb">
+  <app-bulb-details [bulb]="selectedBulb" [selectedRoom]="selectedRoom"></app-bulb-details>
+</div>
+
+

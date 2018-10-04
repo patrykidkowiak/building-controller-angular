@@ -2,7 +2,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import {Home} from '../../home';
 import {Room} from '../room';
 import {RoomService} from '../room.service';
-import {BulbService} from '../bulb/bulb.service';
+import {BulbService} from '../elements/bulb/bulb.service';
 import {ViewEncapsulation} from '@angular/compiler/src/core';
 
 @Component({
@@ -18,7 +18,7 @@ export class RoomListComponent implements OnChanges {
   rooms: Room[];
   selectedRoom: Room;
 
-  constructor(private roomService: RoomService, private  bulbService: BulbService) {
+  constructor(private roomService: RoomService) {
   }
 
   onSelect(room: Room): void {
